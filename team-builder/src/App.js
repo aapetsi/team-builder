@@ -1,24 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [users, setUser] = useState([{id: 1,name: "Apetsi"}, {id:2, name:"John"}, {id:3, name: "Jane"}])
+
+  console.log(users)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>app component</h1>
+      {users.map(user => (
+        <div key={user.id}>
+          <h1>{user.name}</h1>
+        </div>
+      ))}
     </div>
   );
 }
